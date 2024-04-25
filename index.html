@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Note App</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__row">
+          <!-- display : none ;   on the desktop view -->
+          <div class="burger-menu-div">
+            <label class="burger-menu" for="menu">
+              <div class="burger-menu__bar line1"></div>
+              <div class="burger-menu__bar line2"></div>
+              <div class="burger-menu__bar line3"></div>
+            </label>
+            <input class="burger-menu__checkbox" id="menu" type="checkbox" />
+          </div>
+          <!--  -->
+          <h1 class="header__logo">MAS Notes</h1>
+          <!-- header search icon -->
+          <!-- display : none ;   on the desktop view -->
+          <div class="search-icon-div">
+            <label class="burger-menu" for="search">
+              <img
+                class="header__search-icon"
+                src="images/search3.png"
+                alt=""
+              />
+            </label>
+            <input class="search-icon-checkbox" id="search" type="checkbox" />
+          </div>
+          <!--End header search icon -->
+          <!-- display : none ;   on the desktop view -->
+          <div class="search-iconx-div">
+            <label class="burger-menu" for="search">
+              <img class="header__searchx-icon" src="images/close.png" alt="" />
+            </label>
+            <input class="search-iconx-checkbox" id="searchx" type="checkbox" />
+          </div>
+          <!--  -->
+        </div>
+        <!--  -->
+
+        <!-- display : none ;   on the desktop view -->
+        <div class="search__div">
+          <img class="search__img" src="images/search.png" alt="" />
+          <input
+            class="header__search"
+            type="text"
+            name="search"
+            id=""
+            placeholder="search"
+          />
+        </div>
+        <!-- display : none ;   on the desktop view -->
+      </header>
+
+      <div class="menu">
+        <div class="menu__line"></div>
+        <a class="menu__notes-btn" href="index.html">Notes</a>
+        <a class="menu__add-notes-btn" href="add_note.html">Add Notes</a>
+      </div>
+
+      <section class="archive" id="archive">
+        <!-- <p class="archive__pinned" id="archive__pinned">PINNED</p> -->
+        <!-- <div class="archive__item-pinned">
+          <div class="archive__item">
+            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
+            <p class="archive__item-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui.
+            </p>
+            <div class="archive__footer">
+              <p class="date">Feb 8, 2021</p>
+              <button class="archive__footer-delete">Delete</button>
+            </div>
+          </div>
+        </div> -->
+        <!-- <p class="archive__seperator">Notes</p> -->
+        <!-- <div class="archive__item-notes">
+          <div class="archive__item">
+            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
+            <p class="archive__item-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui.
+            </p>
+            <div class="archive__footer">
+              <p class="date">Feb 8, 2021</p>
+              <button class="archive__footer-delete">Delete</button>
+            </div>
+          </div>
+          <div class="archive__item select">
+            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
+            <p class="archive__item-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui.
+            </p>
+            <div class="archive__footer">
+              <p class="date">Feb 8, 2021</p>
+              <button class="archive__footer-delete">Delete</button>
+            </div>
+          </div>
+          <div class="archive__item">
+            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
+            <p class="archive__item-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui.
+            </p>
+            <div class="archive__footer">
+              <p class="date">Feb 8, 2021</p>
+              <button class="archive__footer-delete">Delete</button>
+            </div>
+          </div>
+        </div> -->
+      </section>
+
+      <section class="body">
+        <div class="body__head" id="body__head">
+          <h3 class="body__head-title" id="body__head-title">
+            Business Partners Work at Modern Office
+          </h3>
+          <span class="date" id="date">Feb 8, 2021 / </span>
+          <span class="author date" id="author">By MAS</span>
+        </div>
+        <div class="body__content">
+          <p class="body__content-text" id="body__content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu
+            dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat
+            mauris nisl. Proin vitae urna eu sem pellentesque laoreet. Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.
+            Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
+            nisl. Proin vitae urna eu sem pellentesque laoreet. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem
+            ipsum dolor sit amet, consectetur adipisce placerat mauris nisl.
+            Proin vitae urna eu sem pellentesque laoreet. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum
+            dolor sit amet, consectetur adipisce placerat mauris nisl. Proin
+            vitae urna eu sem pellentesque laoreet. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit
+            amet, consectetur adipisce placerat mauris nisl. Proin vitae urna eu
+            sem pellentesque laoreet.
+          </p>
+        </div>
+
+        <!-- <div class="add_note">
+          <div class="circle">+</div>
+        </div> -->
+      </section>
+    </div>
+
+    <script src="scripts/home.js"></script>
+  </body>
+</html>
