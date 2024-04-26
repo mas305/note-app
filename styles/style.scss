@@ -108,9 +108,9 @@ body {
   display: flex;
   flex-direction: column;
   left: 32px;
-  top: 185px;
+  top: 220px;
 
-  /* buttons*/
+  /*buttons*/
   &__add-notes-btn,
   &__notes-btn {
     width: 100%;
@@ -123,7 +123,6 @@ body {
     color: #898989;
     text-decoration: none;
   }
-
   &__notes-btn {
     color: #303030;
     border-left: 4px solid #ec7160;
