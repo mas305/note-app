@@ -44,7 +44,6 @@
           <!--  -->
         </div>
         <!--  -->
-
         <!-- display : none ;   on the desktop view -->
         <div class="search__div">
           <img class="search__img" src="images/search.png" alt="" />
@@ -69,22 +68,27 @@
 
         <div class="Add-note__textbox">
           <h3 class="input-title">Title</h3>
-          <input class="input-theme" type="text" />
+          <input class="input-theme" id="title-text" type="text" />
         </div>
         <div class="Add-note__textbox">
           <h3 class="input-title">Author</h3>
-          <input class="input-theme" type="text" />
+          <input class="input-theme" id="author-text" type="text" />
         </div>
         <div class="Add-note__textbox">
           <h3 class="input-title">Your Note*</h3>
-          <input class="input-theme input-theme-content" type="text" />
+          <input
+            class="input-theme input-theme-content"
+            id="note-text"
+            type="text"
+          />
         </div>
-        
+
         <div class="Add-note__btns">
           <button class="Add-note__btns__addToNotes">Add Note</button>
           <button class="Add-note__btns__addToPinned">Add Pinned Note</button>
         </div>
       </section>
     </div>
+    <script type="module" src="scripts/add_note.js"></script>
   </body>
 </html>

@@ -44,7 +44,6 @@
           <!--  -->
         </div>
         <!--  -->
-
         <!-- display : none ;   on the desktop view -->
         <div class="search__div">
           <img class="search__img" src="images/search.png" alt="" />
@@ -59,99 +58,81 @@
         <!-- display : none ;   on the desktop view -->
       </header>
 
-      <div class="menu">
+      <div class="menu" id="menu">
         <div class="menu__line"></div>
-        <a class="menu__notes-btn" href="index.html">Notes</a>
-        <a class="menu__add-notes-btn" href="add_note.html">Add Notes</a>
+        <a class="menu__notes-btn select-notes">Notes</a>
+        <a class="menu__add-notes-btn">Add Notes</a>
       </div>
+      <div class="archiveAndBody" id="archiveAndBody">
+        <section class="archive" id="archive">
+          <div class="archive__Pinned"></div>
+          <div class="archive__note"></div>
+        </section>
 
-      <section class="archive" id="archive">
-        <!-- <p class="archive__pinned" id="archive__pinned">PINNED</p> -->
-        <!-- <div class="archive__item-pinned">
-          <div class="archive__item">
-            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
-            <p class="archive__item-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
-              arcu dui.
-            </p>
-            <div class="archive__footer">
-              <p class="date">Feb 8, 2021</p>
-              <button class="archive__footer-delete">Delete</button>
-            </div>
+        <section class="body" id="body">
+          <div class="body__head" id="body__head">
+            <h3 class="body__head-title" id="body__head-title">
+              Business Partners Work at Modern Office
+            </h3>
+            <span class="date" id="date">Feb 8, 2021 / </span>
+            <span class="author date" id="author">By MAS</span>
           </div>
-        </div> -->
-        <!-- <p class="archive__seperator">Notes</p> -->
-        <!-- <div class="archive__item-notes">
-          <div class="archive__item">
-            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
-            <p class="archive__item-content">
+          <div class="body__content">
+            <p class="body__content-text" id="body__content-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
-              arcu dui.
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.
             </p>
-            <div class="archive__footer">
-              <p class="date">Feb 8, 2021</p>
-              <button class="archive__footer-delete">Delete</button>
-            </div>
           </div>
-          <div class="archive__item select">
-            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
-            <p class="archive__item-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
-              arcu dui.
-            </p>
-            <div class="archive__footer">
-              <p class="date">Feb 8, 2021</p>
-              <button class="archive__footer-delete">Delete</button>
-            </div>
-          </div>
-          <div class="archive__item">
-            <h3 class="archive__item-title">Light & Bright in Brooklyn</h3>
-            <p class="archive__item-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
-              arcu dui.
-            </p>
-            <div class="archive__footer">
-              <p class="date">Feb 8, 2021</p>
-              <button class="archive__footer-delete">Delete</button>
-            </div>
-          </div>
-        </div> -->
-      </section>
 
-      <section class="body">
-        <div class="body__head" id="body__head">
-          <h3 class="body__head-title" id="body__head-title">
-            Business Partners Work at Modern Office
-          </h3>
-          <span class="date" id="date">Feb 8, 2021 / </span>
-          <span class="author date" id="author">By MAS</span>
+          <div class="add_note">
+            <div class="circle" id="circle">+</div>
+          </div>
+        </section>
+      </div>
+      <section class="addNote container__add-note" id="addNote">
+        <h2 class="addNote__title body__head-title">Add Note</h2>
+
+        <div class="addNote__textbox">
+          <h3 class="input-title">Title</h3>
+          <input class="input-theme" id="title-text" type="text" />
         </div>
-        <div class="body__content">
-          <p class="body__content-text" id="body__content-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu
-            dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat
-            mauris nisl. Proin vitae urna eu sem pellentesque laoreet. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.
-            Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
-            nisl. Proin vitae urna eu sem pellentesque laoreet. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem
-            ipsum dolor sit amet, consectetur adipisce placerat mauris nisl.
-            Proin vitae urna eu sem pellentesque laoreet. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum
-            dolor sit amet, consectetur adipisce placerat mauris nisl. Proin
-            vitae urna eu sem pellentesque laoreet. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit
-            amet, consectetur adipisce placerat mauris nisl. Proin vitae urna eu
-            sem pellentesque laoreet.
-          </p>
+        <div class="addNote__textbox">
+          <h3 class="input-title">Author</h3>
+          <input class="input-theme" id="author-text" type="text" />
+        </div>
+        <div class="addNote__textbox">
+          <h3 class="input-title">Your Note*</h3>
+          <input
+            class="input-theme input-theme-content"
+            id="note-text"
+            type="text"
+          />
         </div>
 
-        <!-- <div class="add_note">
-          <div class="circle">+</div>
-        </div> -->
+        <div class="addNote__btns">
+          <button class="addNote__btns__addToNotes">Add Note</button>
+          <button class="addNote__btns__addToPinned">Add Pinned Note</button>
+        </div>
       </section>
+      
     </div>
-
-    <script src="scripts/home.js"></script>
+    
+    <script type="module" src="scripts/home2.js"></script>
+    <script type="module" src="scripts/add_note.js"></script>
+    <script type="module" src="scripts/switchPages.js"></script>
   </body>
 </html>

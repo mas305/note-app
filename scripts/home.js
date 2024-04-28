@@ -1,5 +1,4 @@
-// Array of data
-const noteData = [
+export let noteData = [
   {
     pin: false,
     head: "Computer science1",
@@ -57,12 +56,15 @@ const noteData = [
     author: "MAS",
   },
 ];
-
 // DOM element where archive items will be rendered
 const archiveElement = document.querySelector("#archive");
 
-// HTML markup for the section header
-const noteHead = `<p class="archive__seperator">Notes</p>`;
+function archiveNoteHeader() {
+  // HTML markup for the section header
+  const noteHead = `<p class="archive__seperator">Notes</p>`;
+  // Insert section header into archiveElement
+  archiveElement.insertAdjacentHTML("beforeend", noteHead);
+}
 
 // Function to generate HTML for a regular archive item
 const generateArchiveItem = (archiveItem) => `
@@ -96,9 +98,6 @@ const generatePinnedNotesItem = (pinnedNotesItem) => `
   </div>
 `;
 
-// Insert section header into archiveElement
-archiveElement.insertAdjacentHTML("beforeend", noteHead);
-
 // Render archive items based on the data
 noteData.forEach((archiveItem) => {
   if (archiveItem.pin) {
@@ -115,7 +114,7 @@ noteData.forEach((archiveItem) => {
 // Insert section header for pinned items into archiveElement
 const pinnedTitle = `<p class="archive__pinned" id="archive__pinned">PINNED</p>`;
 archiveElement.insertAdjacentHTML("afterbegin", pinnedTitle);
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////view data ///////////////////////
 // DOM elements for displaying selected item details
 const noteTitle = document.querySelector("#body__head-title");
 const noteContent = document.querySelector("#body__content-text");
@@ -144,7 +143,6 @@ archiveItems.forEach((item) => {
       date: item.getAttribute("data-date"),
       author: item.getAttribute("data-author"),
     };
-
     // Update UI elements with the retrieved data
     noteTitle.textContent = clickedItemData.head;
     noteContent.textContent = clickedItemData.content;
@@ -159,15 +157,27 @@ document.querySelectorAll(".archive__footer-delete").forEach((deleteBtn) => {
     const noteHead = archiveItem.getAttribute("data-head");
     archiveItem.remove();
 
-    // if (noteTitle.textContent === noteHead) {
-    //   noteTitle.textContent = "";
-    //   noteContent.textContent = "";
-    //   noteDate.textContent = "";
-    //   noteAuthor.textContent = "" ;
-    // }
-
     noteData = noteData.filter((note) => note.head !== noteHead);
 
     console.log(noteData);
   });
 });
+
+// ////////////////////////////////////////////////////////////////////////////////////////////Add Note Page//////////////////////////////////////////////
+
+// Retrieve the stringified data from local storage using the key
+const storedDataString = localStorage.getItem("noteData");
+
+if (storedDataString) {
+  // Parse the string back into a JavaScript object
+  const storedData = JSON.parse(storedDataString);
+
+  noteData.push(storedData);
+  // Now you can use the storedData object in this file
+  console.log(storedData);
+
+  const htmlElement = generateArchiveItem(storedData);
+  archiveElement.insertAdjacentHTML("beforeend", htmlElement);
+}
+
+console.log(noteData);

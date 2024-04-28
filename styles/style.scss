@@ -38,10 +38,14 @@ body {
 .container {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.2fr 3fr;
+  grid-template-columns: 1fr 4.2fr;
   transition: transform 0.4s ease-in-out;
   background: #ffffff;
   height: 100vh;
+}
+.archiveAndBody {
+  display: flex;
+  // justify-content: center;
 }
 
 /* Header */
@@ -117,16 +121,21 @@ body {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     line-height: 27px;
     padding: 10px;
     color: #898989;
     text-decoration: none;
   }
-  &__notes-btn {
-    color: #303030;
-    border-left: 4px solid #ec7160;
-  }
+  // &__notes-btn {
+  //   color: #303030;
+  //   border-left: 4px solid #ec7160;
+  // }
+}
+
+.select-notes {
+  color: #303030;
+  border-left: 4px solid #ec7160;
 }
 
 /* Archive */
@@ -154,7 +163,7 @@ body {
     margin: 10px 0;
     cursor: pointer;
   }
-  &__item-title {
+  &__data-title {
     width: 232px;
     height: 27px;
     font-family: "Inter";
@@ -164,7 +173,7 @@ body {
     line-height: 27px;
     color: #303030;
   }
-  &__item-content {
+  &__data-content {
     width: 265px;
     height: 40px;
     font-family: "Inter";
@@ -275,6 +284,7 @@ body {
   color: #f6f6f6;
   background: #ec7160;
   border-radius: 32.5px;
+  cursor: pointer;
 }
 
 // Home Page Responsive
@@ -283,6 +293,9 @@ body {
     grid-template-columns: 1fr;
     transition: transform 0.2s ease-in-out;
     height: 500px;
+  }
+  .archiveAndBody {
+    justify-content: center;
   }
 
   .body,
@@ -295,6 +308,7 @@ body {
   }
   .archive {
     padding-top: 120px;
+    border: none;
   }
 
   .header {
@@ -365,6 +379,10 @@ body {
     display: flex;
   }
 
+  .container:has(.burger-menu__checkbox:unchecked) .menu {
+    display: none;
+  }
+
   .search__div {
     width: 100%;
     top: 5px;
@@ -380,9 +398,9 @@ body {
   width: 100%;
 }
 
-.Add-note {
+.addNote {
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -447,7 +465,7 @@ body {
     grid-template-columns: 1fr;
     transition: transform 0.2s ease-in-out;
 
-    &__add-note {
+    &__addNote {
       height: 500px;
       display: flex;
       flex-direction: column;
@@ -457,11 +475,11 @@ body {
 
   .menu,
   .search__div,
-  .container:has(.burger-menu__checkbox:checked) .Add-note {
+  .container:has(.burger-menu__checkbox:checked) .addNote {
     display: none;
   }
 
-  .Add-note {
+  .addNote {
     padding-top: 120px;
     &__btns {
       grid-template-columns: 1fr;
@@ -473,7 +491,10 @@ body {
       width: 70%;
     }
   }
-
+  .container:has(.burger-menu__checkbox:checked) .addNote {
+    opacity: 0;
+    visibility: hidden;
+  }
   .body__head-title {
     margin-top: 20px;
   }
