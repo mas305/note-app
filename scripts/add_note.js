@@ -1,4 +1,21 @@
- let noteData = [];
+let noteData = [];
+// Generate Date
+const date = new Date();
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const month = monthNames[date.getMonth()];
 
 const addNoteBtn = document.querySelector(".addNote__btns__addToNotes");
 const addPinnedNoteBtn = document.querySelector(".addNote__btns__addToPinned");
@@ -16,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   displayNotes();
 });
 
- function loadNoteData() {
+function loadNoteData() {
   let storedData = localStorage.getItem("noteData");
   try {
     // Attempt to parse the stored data as JSON
@@ -29,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
- function saveNoteData() {
+function saveNoteData() {
   localStorage.setItem("noteData", JSON.stringify(noteData));
 }
 
@@ -64,7 +81,7 @@ addNoteBtn.addEventListener("click", () => {
     isPinned: false,
     author: authorContent.value,
     content: noteText.value,
-    date: "23/5/2023",
+    date: `${month} ${date.getDate()}, ${date.getFullYear()}`,
   };
 
   noteData.push(newData);
@@ -86,7 +103,7 @@ addPinnedNoteBtn.addEventListener("click", () => {
     isPinned: true,
     author: authorContent.value,
     content: noteText.value,
-    date: "23/5/2023",
+    date: `${month} ${date.getDate()}, ${date.getFullYear()}`,
   };
 
   noteData.push(newData);
@@ -109,6 +126,7 @@ const noteContent = document.querySelector("#body__content-text");
 const noteDate = document.querySelector("#date");
 const noteAuthor = document.querySelector("#author");
 const archiveElement = document.querySelector("#archive");
+const bodySection = document.querySelector("#body");
 
 document.addEventListener("DOMContentLoaded", () => {
   // Load existing notes from local storage
@@ -119,6 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(noteData);
   archiveItems.forEach((item) => {
     item.addEventListener("click", () => {
+      if (mediaQuery.matches) {
+        archiveElement.style.display = "none";
+        bodySection.style.display = "block";
+      }
       // Remove 'select' class from previously selected item if any
       const previouslySelected = archiveElement.querySelector(
         ".archive__item.select"
@@ -127,10 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
         previouslySelected.classList.remove("select");
       }
 
-      // Add 'select' class to the clicked item
       item.classList.add("select");
 
-      // Retrieve data attributes from the clicked item
       const clickedItemData = {
         title: item.getAttribute("data-head"),
         author: item.getAttribute("data-author"),
@@ -138,16 +158,24 @@ document.addEventListener("DOMContentLoaded", () => {
         date: item.getAttribute("data-date"),
       };
       // console.log(clickedItemData);
-      // Update UI elements with the retrieved data
       noteTitle.textContent = clickedItemData.title;
       noteContent.textContent = clickedItemData.content;
       noteDate.textContent = clickedItemData.date;
-      noteAuthor.textContent = ` - By ${clickedItemData.author}`;
+      noteAuthor.textContent = ` / By ${clickedItemData.author}`;
     });
   });
 });
+const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+function handle(mediaQuery) {
+  if (mediaQuery.matches) {
+    notesSection.style.visibility = "hidden";
+    bodySection.style.visibility = "visible";
+  }
+}
 
 export { noteData, saveNoteData, loadNoteData };
+
 ////////////////////////////////////////////////Delete Btn //////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", () => {

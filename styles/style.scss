@@ -231,7 +231,7 @@ body {
   }
 
   &__content-text {
-    width: 600px;
+    width: 80%;
     height: 81px;
     font-family: "Inter";
     font-style: normal;
@@ -347,6 +347,7 @@ body {
   .container:has(.burger-menu__checkbox:checked) .archive {
     opacity: 0;
     visibility: hidden;
+    // visibility:visible;
   }
   .menu button {
     width: 100%;
@@ -386,6 +387,13 @@ body {
   .search__div {
     width: 100%;
     top: 5px;
+  }
+
+  .body{
+    // &__content-text{
+    //   width: 50%;
+    // }
+    justify-self:left;
   }
 }
 // End Home Page
@@ -472,7 +480,13 @@ body {
       align-items: center;
     }
   }
+  // .body{
+  //   width: auto;
+  // }
 
+  .circle{
+    display: none;
+  }
   .menu,
   .search__div,
   .container:has(.burger-menu__checkbox:checked) .addNote {

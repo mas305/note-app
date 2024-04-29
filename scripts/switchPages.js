@@ -5,6 +5,8 @@ const addNotesBtn = document.querySelector(".menu__add-notes-btn");
 const container = document.querySelector(".container");
 const menu = document.querySelector(".menu");
 const circle = document.querySelector(".circle");
+const burgerMenuCheckbox = document.querySelector(".burger-menu__checkbox");
+const bodySection = document.querySelector("#body");
 
 function displayNoteSection() {
   NoteSection.style.display = "flex";
@@ -35,13 +37,46 @@ notesBtn.addEventListener("click", () => {
   location.reload();
 });
 
+/////////////////////////////////////////////////////////Responsive///////////////////////////
 const mediaQuery = window.matchMedia("(max-width: 500px)");
 
-// function anyThing(mediaQuery) {
-//   if (mediaQuery.matches) {
-//     addNotesBtn.addEventListener("click", () => {
-//       displayAddNoteSection();
-//       menu.style.display = "none";
-//     });
-//   }
-// }
+function handleCheckbox(mediaQuery) {
+  function handleMediaChange(matches) {
+    if (matches) {
+      addNotesBtn.addEventListener("click", () => {
+        displayAddNoteSection();
+        menu.style.visibility = "hidden";
+        burgerMenuCheckbox.checked = false;
+      });
+
+      burgerMenuCheckbox.addEventListener("change", () => {
+        if (burgerMenuCheckbox.checked) {
+          menu.style.visibility = "visible";
+          // bodySection.style.visibility = "hidden";
+          hideAddNoteSection();
+        } else {
+          menu.style.visibility = "hidden";
+          // displayAddNoteSection();
+        }
+      });
+      burgerMenuCheckbox.addEventListener("change", () => {
+        if (burgerMenuCheckbox.checked) {
+          menu.style.visibility = "visible";
+          bodySection.style.visibility = "hidden";
+          // hideAddNoteSection();
+        } else {
+          bodySection.style.visibility = "visible";
+          // displayAddNoteSection();
+        }
+      });
+    }
+  }
+
+  handleMediaChange(mediaQuery.matches);
+
+  mediaQuery.addEventListener("change", (e) => {
+    handleMediaChange(e.matches);
+  });
+}
+
+handleCheckbox(mediaQuery);

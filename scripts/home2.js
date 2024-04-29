@@ -1,19 +1,20 @@
+
 const initialNotes = [
   {
     title: "Frontend Developer (React.js)",
     author: "Mostafa Ameen",
     content:
-      "Hello there! I am a dedicated Frontend developer currently pursuing my degree in Biomedical Engineering at Cairo University...",
+      "Hello there! I am a dedicated Frontend developer currently pursuing",
     isPinned: true,
-    date: "25/5/2025",
+    date: "Feb 8, 2021",
   },
   {
     title: "🎯 ToDoList Project App",
     author: "MAS",
     content:
-      "Presenting a meticulously crafted React TodoList: a proficient task management tool enabling seamless task creation, updates, and deletion...",
+      "Presenting a meticulously crafted React TodoList: a proficient task management ",
     isPinned: false,
-    date: "25/5/2025",
+    date: "Aug 2, 2023",
   },
 ];
 // DOM element where archive items will be rendered
@@ -45,7 +46,6 @@ function generateDefultArchiveItem(item) {
       </div>`;
 }
 
-
 archivePinnedNoteHeader();
 initialNotes.forEach((item) => {
   if (item.isPinned) {
@@ -64,14 +64,12 @@ initialNotes.forEach((item) => {
 
 //////////////////////////////////////////////////////Display data on Body//////////////////////////////////////////////
 
-
 const noteTitle = document.querySelector("#body__head-title");
 const noteContent = document.querySelector("#body__content-text");
 const noteDate = document.querySelector("#date");
 const noteAuthor = document.querySelector("#author");
 
 const archiveItems = document.querySelectorAll(".archive__item");
-
 
 archiveItems.forEach((item) => {
   item.addEventListener("click", () => {
