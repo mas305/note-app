@@ -53,7 +53,7 @@ function handleCheckbox(mediaQuery) {
         if (burgerMenuCheckbox.checked) {
           menu.style.visibility = "visible";
           // bodySection.style.visibility = "hidden";
-          hideAddNoteSection();
+          // hideAddNoteSection();
         } else {
           menu.style.visibility = "hidden";
           // displayAddNoteSection();
