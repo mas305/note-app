@@ -1,5 +1,9 @@
 const searchBtn = document.querySelector(".header__search");
 const archive = document.querySelector(".archive");
+const noteTitle = document.querySelector("#body__head-title");
+const noteContent = document.querySelector("#body__content-text");
+const noteDate = document.querySelector("#date");
+const noteAuthor = document.querySelector("#author");
 let noteData = loadNoteData();
 
 function loadNoteData() {
