@@ -58,6 +58,7 @@ body {
   flex-direction: column;
   transition: transform 0.4s ease-in-out;
   border-right: 1px solid #e7e7e9;
+  // z-index: 2;
 
   &__row {
     display: flex;
@@ -113,6 +114,7 @@ body {
   flex-direction: column;
   left: 32px;
   top: 220px;
+  z-index: 3;
 
   /*buttons*/
   &__add-notes-btn,
@@ -144,6 +146,7 @@ body {
   flex-direction: column;
   align-items: center;
   border-right: 1px solid #e7e7e9;
+  position: relative;
 
   /* PINNED */
   &__pinned {
@@ -314,6 +317,7 @@ body {
   .header {
     justify-content: space-between;
     position: fixed;
+    z-index: 3;
   }
   .burger-menu {
     display: flex;
@@ -389,11 +393,11 @@ body {
     top: 5px;
   }
 
-  .body{
+  .body {
     // &__content-text{
     //   width: 50%;
     // }
-    justify-self:left;
+    justify-self: left;
   }
 }
 // End Home Page
@@ -484,7 +488,7 @@ body {
   //   width: auto;
   // }
 
-  .circle{
+  .circle {
     display: none;
   }
   .menu,
