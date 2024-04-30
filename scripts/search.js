@@ -1,22 +1,18 @@
 const searchBtn = document.querySelector(".header__search");
 const archive = document.querySelector(".archive");
-let noteData = loadNoteData(); // Assuming you have a function to load note data from local storage
+let noteData = loadNoteData();
 
-// Function to load note data from local storage
 function loadNoteData() {
   let storedData = localStorage.getItem("noteData");
   try {
-    // Attempt to parse the stored data as JSON
     let parsedData = JSON.parse(storedData);
-    // Check if parsed data is an array; if not, initialize an empty array
     return Array.isArray(parsedData) ? parsedData : [];
   } catch (error) {
     console.error("Error loading note data from local storage:", error);
-    return []; // Return empty array if parsing or loading fails
+    return [];
   }
 }
 
-// Function to render archive items based on search keyword
 function renderArchiveItems(keyword) {
   const archiveItems = archive.querySelectorAll(".archive__item");
   archiveItems.forEach((item) => {
@@ -35,16 +31,42 @@ function renderArchiveItems(keyword) {
       author.includes(keyword) ||
       date.includes(keyword)
     ) {
-      item.style.backgroundColor = "#ec7160"; // Set background color to red
+      // Apply styles for matching items
+      // item.style.backgroundColor = "#ec7160"; // Set background color to red
+      item.style.boxShadow = "0 0 8px rgba(0, 0, 0, 0.3)"; // Add black box shadow
+      item.style.borderRadius = "20px"; // Add black box shadow
+    } else {
+      // Reset styles for non-matching items
+      item.style.backgroundColor = ""; // Reset background color
+      item.style.boxShadow = "none"; // Remove box shadow
     }
   });
 }
 
 searchBtn.addEventListener("input", () => {
-  const searchKeyword = searchBtn.value.trim(); // Get input value and trim whitespace
+  const searchKeyword = searchBtn.value.trim();
 
   if (searchKeyword) {
+    renderArchiveItems(searchKeyword.toLowerCase());
+  } else {
+    resetArchiveItems();
   }
-  renderArchiveItems(searchKeyword.toLowerCase()); // Convert keyword to lowercase for case-insensitive search
-  // Render archive items based on the search keyword
 });
+
+function resetArchiveItems() {
+  const archiveItems = document.querySelectorAll(".archive__item");
+
+  archiveItems.forEach((item) => {
+    item.classList.remove("select");
+  });
+
+  archiveItems.forEach((item) => {
+    // item.style.backgroundColor = "";
+    item.style.boxShadow = "none";
+  });
+
+  noteTitle.textContent = "";
+  noteContent.textContent = "";
+  noteDate.textContent = "";
+  noteAuthor.textContent = "";
+}

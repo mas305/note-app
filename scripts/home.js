@@ -1,131 +1,74 @@
-export let noteData = [
+const initialNotes = [
   {
-    pin: false,
-    head: "Computer science1",
+    title: "Frontend Developer (React.js)",
+    author: "Mostafa Ameen",
     content:
-      "Computer science Computer science Computer science Computer science",
-    date: "20 / 5 / 2023",
-    author: "MAS",
+      "Passionate React.js developer with a keen eye for user experience. Dedicated to crafting intuitive and responsive frontend solutions. Currently advancing my skills in modern web development. Excited about leveraging React's ecosystem to build dynamic interfaces. Committed to delivering high-quality, scalable applications for optimal user engagement.",
+    isPinned: true,
+    date: "Feb 8, 2021",
   },
   {
-    pin: false,
-    head: "Computer science2",
-    content:
-      "Computer science Computer science Computer science Computer science",
-    date: "21 / 5 / 2023",
+    title: "🎯 ToDoList Project App",
     author: "MAS",
-  },
-  {
-    pin: false,
-    head: "Computer science3",
     content:
-      "Computer science Computer science Computer science Computer science",
-    date: "22 / 5 / 2023",
-    author: "MAS",
-  },
-  {
-    pin: false,
-    head: "Computer science4",
-    content:
-      "Computer science Computer science Computer science Computer science",
-    date: "23 / 5 / 2023",
-    author: "MAS",
-  },
-  {
-    pin: true,
-    head: "2nd pin note",
-    content:
-      "Computer science Computer science Computer science Computer science",
-    date: "24 / 5 / 2023",
-    author: "MAS",
-  },
-  {
-    pin: false,
-    head: "Computer science5",
-    content:
-      "Computer science Computer science Computer science Computer science",
-    date: "24 / 5 / 2023",
-    author: "MAS",
-  },
-  {
-    pin: true,
-    head: "1st pin note",
-    content:
-      "Computer science Computer science Computer science Computer science",
-    date: "24 / 5 / 2023",
-    author: "MAS",
+      "Presenting a meticulously crafted React TodoList: a proficient task management ",
+    isPinned: false,
+    date: "Aug 2, 2023",
   },
 ];
-// DOM element where archive items will be rendered
 const archiveElement = document.querySelector("#archive");
 
+function archivePinnedNoteHeader() {
+  // Insert section header for pinned items into archiveElement
+  const pinnedTitle = `<p class="archive__pinned" id="archive__pinned">PINNED</p>`;
+  archiveElement.insertAdjacentHTML("afterbegin", pinnedTitle);
+}
 function archiveNoteHeader() {
-  // HTML markup for the section header
   const noteHead = `<p class="archive__seperator">Notes</p>`;
-  // Insert section header into archiveElement
   archiveElement.insertAdjacentHTML("beforeend", noteHead);
 }
+function generateDefultArchiveItem(item) {
+  return `<div class="archive__item"
+           data-head="${item.title}"
+           data-content="${item.content}"
+           data-date="${item.date}"
+           data-author="${item.author || "Unknown"}">
+        <h3 class="archive__data-title">${item.title}</h3>
+        <p class="archive__data-content">${item.content}</p>
+        <div class="archive__footer">
+          <p class="date">${item.date}</p>
+          <button class="archive__footer-delete">Delete</button>
+        </div>
+      </div>`;
+}
 
-// Function to generate HTML for a regular archive item
-const generateArchiveItem = (archiveItem) => `
-  <div class="archive__item"
-       data-head="${archiveItem.head}"
-       data-content="${archiveItem.content}"
-       data-date="${archiveItem.date}"
-       data-author="${archiveItem.author || "Unknown"}">
-    <h3 class="archive__item-title">${archiveItem.head}</h3>
-    <p class="archive__item-content">${archiveItem.content}</p>
-    <div class="archive__footer">
-      <p class="date">${archiveItem.date}</p>
-      <button class="archive__footer-delete">Delete</button>
-    </div>
-  </div>
-`;
-
-// Function to generate HTML for a pinned archive item
-const generatePinnedNotesItem = (pinnedNotesItem) => `
-  <div class="archive__item"
-       data-head="${pinnedNotesItem.head}"
-       data-content="${pinnedNotesItem.content}"
-       data-date="${pinnedNotesItem.date}"
-       data-author="${pinnedNotesItem.author || ""}">
-    <h3 class="archive__item-title">${pinnedNotesItem.head}</h3>
-    <p class="archive__item-content">${pinnedNotesItem.content}</p>
-    <div class="archive__footer">
-      <p class="date">${pinnedNotesItem.date}</p>
-      <button class="archive__footer-delete">Delete</button>
-    </div>
-  </div>
-`;
-
-// Render archive items based on the data
-noteData.forEach((archiveItem) => {
-  if (archiveItem.pin) {
-    // Generate HTML for pinned item and insert at the beginning of the list
-    const htmlElement = generatePinnedNotesItem(archiveItem);
-    archiveElement.insertAdjacentHTML("afterbegin", htmlElement);
-  } else {
-    // Generate HTML for regular item and insert at the end of the list
-    const htmlElement = generateArchiveItem(archiveItem);
+archivePinnedNoteHeader();
+initialNotes.forEach((item) => {
+  if (item.isPinned) {
+    const htmlElement = generateDefultArchiveItem(item);
     archiveElement.insertAdjacentHTML("beforeend", htmlElement);
   }
 });
 
-// Insert section header for pinned items into archiveElement
-const pinnedTitle = `<p class="archive__pinned" id="archive__pinned">PINNED</p>`;
-archiveElement.insertAdjacentHTML("afterbegin", pinnedTitle);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////view data ///////////////////////
-// DOM elements for displaying selected item details
+archiveNoteHeader();
+initialNotes.forEach((item) => {
+  if (!item.isPinned) {
+    const htmlElement = generateDefultArchiveItem(item);
+    archiveElement.insertAdjacentHTML("beforeend", htmlElement);
+  }
+});
+
+//////////////////////////////////////////////////////Display data on Body//////////////////////////////////////////////
+
 const noteTitle = document.querySelector("#body__head-title");
 const noteContent = document.querySelector("#body__content-text");
 const noteDate = document.querySelector("#date");
 const noteAuthor = document.querySelector("#author");
 
-// Get all archive items and attach click event listener
 const archiveItems = document.querySelectorAll(".archive__item");
+
 archiveItems.forEach((item) => {
   item.addEventListener("click", () => {
-    // Remove 'select' class from previously selected item if any
     const previouslySelected = archiveElement.querySelector(
       ".archive__item.select"
     );
@@ -133,51 +76,18 @@ archiveItems.forEach((item) => {
       previouslySelected.classList.remove("select");
     }
 
-    // Add 'select' class to the clicked item
     item.classList.add("select");
 
-    // Retrieve data attributes from the clicked item
     const clickedItemData = {
-      head: item.getAttribute("data-head"),
+      title: item.getAttribute("data-head"),
+      author: item.getAttribute("data-author"),
       content: item.getAttribute("data-content"),
       date: item.getAttribute("data-date"),
-      author: item.getAttribute("data-author"),
     };
-    // Update UI elements with the retrieved data
-    noteTitle.textContent = clickedItemData.head;
+    console.log(clickedItemData);
+    noteTitle.textContent = clickedItemData.title;
     noteContent.textContent = clickedItemData.content;
     noteDate.textContent = clickedItemData.date;
     noteAuthor.textContent = ` - By ${clickedItemData.author}`;
   });
 });
-
-document.querySelectorAll(".archive__footer-delete").forEach((deleteBtn) => {
-  deleteBtn.addEventListener("click", () => {
-    const archiveItem = deleteBtn.closest(".archive__item");
-    const noteHead = archiveItem.getAttribute("data-head");
-    archiveItem.remove();
-
-    noteData = noteData.filter((note) => note.head !== noteHead);
-
-    console.log(noteData);
-  });
-});
-
-// ////////////////////////////////////////////////////////////////////////////////////////////Add Note Page//////////////////////////////////////////////
-
-// Retrieve the stringified data from local storage using the key
-const storedDataString = localStorage.getItem("noteData");
-
-if (storedDataString) {
-  // Parse the string back into a JavaScript object
-  const storedData = JSON.parse(storedDataString);
-
-  noteData.push(storedData);
-  // Now you can use the storedData object in this file
-  console.log(storedData);
-
-  const htmlElement = generateArchiveItem(storedData);
-  archiveElement.insertAdjacentHTML("beforeend", htmlElement);
-}
-
-console.log(noteData);

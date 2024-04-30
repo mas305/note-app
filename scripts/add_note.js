@@ -26,23 +26,19 @@ const notesSection = document.querySelector("#archive");
 const PinnedSection = document.querySelector(".archive__Pinned");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load existing notes from local storage
   noteData = loadNoteData();
 
-  // Display existing notes in the archive section
   displayNotes();
 });
 
 function loadNoteData() {
   let storedData = localStorage.getItem("noteData");
   try {
-    // Attempt to parse the stored data as JSON
     let parsedData = JSON.parse(storedData);
-    // Check if parsed data is an array; if not, initialize an empty array
     return Array.isArray(parsedData) ? parsedData : [];
   } catch (error) {
     console.error("Error loading note data from local storage:", error);
-    return []; // Return empty array if parsing or loading fails
+    return [];
   }
 }
 
@@ -129,7 +125,6 @@ const archiveElement = document.querySelector("#archive");
 const bodySection = document.querySelector("#body");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load existing notes from local storage
   noteData = loadNoteData();
 
   const archiveItems = document.querySelectorAll(".archive__item");
@@ -141,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
         archiveElement.style.display = "none";
         bodySection.style.display = "block";
       }
-      // Remove 'select' class from previously selected item if any
       const previouslySelected = archiveElement.querySelector(
         ".archive__item.select"
       );
@@ -179,7 +173,6 @@ export { noteData, saveNoteData, loadNoteData };
 ////////////////////////////////////////////////Delete Btn //////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load existing notes from local storage
   noteData = loadNoteData();
 
   document.querySelectorAll(".archive__footer-delete").forEach((deleteBtn) => {
