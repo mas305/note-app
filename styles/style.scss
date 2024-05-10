@@ -129,12 +129,14 @@ body {
     padding: 10px;
     color: #898989;
     text-decoration: none;
+    cursor: pointer;
   }
 }
 
 .select-notes {
   color: #303030;
   border-left: 4px solid #ec7160;
+  cursor: pointer;
 }
 
 /* Archive */
@@ -244,6 +246,19 @@ body {
     line-height: 27px;
     color: #303030;
   }
+}
+.input-theme {
+  /* Common styles for the input */
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.input-theme-content {
+  /* Styles specific to the multiline textarea */
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Set a minimum height */
 }
 
 .search__img {
